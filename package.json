@@ -9,7 +9,7 @@
     "build": "webpack",
     "start": "webpack serve --open",
     "watch": "webpack --watch",
-    "test": "jest ."
+    "test": "jest . "
   },
   "keywords": [],
   "author": "",
