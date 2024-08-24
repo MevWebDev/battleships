@@ -1,4 +1,5 @@
 import globals from "globals";
+const { jest } = globals;
 
 import path from "path";
 import { fileURLToPath } from "url";
@@ -15,7 +16,11 @@ const compat = new FlatCompat({
 });
 
 export default [
-  { languageOptions: { globals: globals.browser } },
+  {
+    languageOptions: {
+      globals: globals.browser,
+    },
+  },
   ...compat.extends("airbnb-base"),
   eslintConfigPrettier,
 ];
