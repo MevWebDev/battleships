@@ -19,6 +19,11 @@ export default [
   {
     languageOptions: {
       globals: globals.browser,
+      ecmaVersion: 6,
+    },
+    rules: {
+      "import/no-named-as-default": "off",
+      "import/no-named-as-default-member": "off",
     },
   },
   ...compat.extends("airbnb-base"),
