@@ -1,4 +1,4 @@
-import Ship from "../ship";
+import Ship from "../logic/ship";
 
 test("ship has length", () => {
   const ship = new Ship(4);
