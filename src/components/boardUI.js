@@ -8,6 +8,7 @@ export default function boardUI() {
       field.classList.add(`field-${i}-${j}`);
       field.classList.add("field");
       board.appendChild(field);
+      field.style.backgroundColor = "transparent";
     }
   }
   return board;
