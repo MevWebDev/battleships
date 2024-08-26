@@ -1,5 +1,10 @@
 import displayShips from "./displayShips";
 
+let currentMouseOverFunction = null;
+let currentMouseOutFunction = null;
+
+const hoverColor = "rgb(173, 216, 230)";
+
 export default function playerPutsShips(player) {
   const gameboard = document.querySelector(".board");
   let index = 0;
@@ -8,7 +13,7 @@ export default function playerPutsShips(player) {
   const playerBoard = player.gameboard;
   const playerShips = playerBoard.ships;
 
-  hoverPutting(playerBoard);
+  hoverPutting(playerBoard, player, index);
 
   fields.forEach((field) => {
     field.addEventListener("click", () => {
@@ -23,48 +28,99 @@ export default function playerPutsShips(player) {
           return;
         }
         index += 1;
-        hoverPutting(playerBoard, playerShips, index);
+        removeHover();
+        hoverPutting(playerBoard, player, index);
       }
-      console.log(playerBoard.board);
+
       displayShips(player, gameboard);
     });
   });
 }
 
-function handleMouseOver(gameboard) {
+function handleMouseOver(gameboard, player, index) {
   return function () {
-    const x = this.className.split("-")[1];
-    const y = this.className.split("-")[2].split(" ")[0];
-    console.log(gameboard.board[x][y]);
-    if (gameboard.board[x][y] !== null) {
+    console.log(index);
+    const x = parseInt(this.className.split("-")[1]);
+    const y = parseInt(this.className.split("-")[2].split(" ")[0]);
+
+    if (
+      gameboard.board[x][y] !== null ||
+      y + gameboard.ships[index].length > 10
+    ) {
       this.style.cursor = "not-allowed";
       return;
     }
-    this.style.backgroundColor = "blue";
+
+    if (player.direction === "horizontally") {
+      if (y + gameboard.ships[index].length <= 10) {
+        // checkin if u can place ship
+        for (let i = 0; i < gameboard.ships[index].length; i += 1) {
+          if (gameboard.board[x][y + i] !== null) {
+            this.style.cursor = "not-allowed";
+            return;
+          }
+        }
+        // hovering over fields
+        for (let i = 0; i < gameboard.ships[index].length; i += 1) {
+          if (gameboard.board[x][y + i] !== null) {
+            this.style.cursor = "not-allowed";
+            return;
+          }
+
+          const field = document.querySelector(`.field-${x}-${y + i}`);
+
+          if (field !== null) {
+            if (field.style.backgroundColor === "transparent")
+              field.style.backgroundColor = hoverColor;
+          }
+        }
+      }
+    }
   };
 }
-function handleMouseOut() {
+function handleMouseOut(gameboard, player, index) {
   return function () {
-    if (this.style.backgroundColor !== "blue") return;
+    const x = parseInt(this.className.split("-")[1]);
+    const y = parseInt(this.className.split("-")[2].split(" ")[0]);
 
-    this.style.backgroundColor = "transparent";
+    if (this.style.backgroundColor !== hoverColor) return;
+
+    if (player.direction === "horizontally") {
+      if (y + gameboard.ships[index].length <= 10) {
+        for (let i = 0; i < gameboard.ships[index].length; i += 1) {
+          const field = document.querySelector(`.field-${x}-${y + i}`);
+
+          if (field !== null) {
+            if (field.style.backgroundColor === hoverColor)
+              field.style.backgroundColor = "transparent";
+          }
+        }
+      }
+    }
   };
 }
 
-function hoverPutting(gameboard) {
+function hoverPutting(gameboard, player, index) {
+  if (index === 5) return;
   const board = document.querySelector(".game-board");
   const fields = board.childNodes;
+  currentMouseOverFunction = handleMouseOver(gameboard, player, index);
+  currentMouseOutFunction = handleMouseOut(gameboard, player, index);
   fields.forEach((field) => {
-    field.addEventListener("mouseover", handleMouseOver(gameboard));
-    field.addEventListener("mouseout", handleMouseOut());
+    field.addEventListener("mouseover", currentMouseOverFunction);
+    field.addEventListener("mouseout", currentMouseOutFunction);
   });
 }
 
 function removeHover() {
   const board = document.querySelector(".game-board");
   const fields = board.childNodes;
-  fields.forEach((field) => {
-    field.removeEventListener("mouseover", handleMouseOver);
-    field.removeEventListener("mouseout", handleMouseOut);
-  });
+  if (currentMouseOverFunction && currentMouseOutFunction) {
+    fields.forEach((field) => {
+      field.removeEventListener("mouseover", currentMouseOverFunction);
+      field.removeEventListener("mouseout", currentMouseOutFunction);
+    });
+    currentMouseOverFunction = null;
+    currentMouseOutFunction = null;
+  }
 }
