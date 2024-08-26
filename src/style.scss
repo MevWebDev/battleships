@@ -6,7 +6,6 @@ body {
   margin: 0;
   padding: 0;
   .app {
-    background-color: red;
     width: 100%;
     height: 100%;
     display: flex;
@@ -14,6 +13,7 @@ body {
     align-items: center;
     flex-direction: column;
     gap: 5rem;
+    background-color: #dddddd;
     .board-container {
       display: flex;
       width: 90%;
@@ -26,20 +26,15 @@ body {
       }
       .board {
         display: grid;
+        border: 1px solid #555555;
         grid-template-columns: repeat(10, 1fr);
         width: 85%;
         aspect-ratio: 1/1;
         .field {
-          border: 1px solid blue;
-        }
-        .ship {
-          background-color: yellow;
+          border: 1px solid #555555;
         }
       }
       .miss-board {
-        .ship {
-          background-color: yellow;
-        }
       }
     }
   }
