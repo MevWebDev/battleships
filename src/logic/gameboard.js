@@ -6,11 +6,11 @@ export default class Gameboard {
       .fill(null)
       .map(() => Array(10).fill(null));
     this.ships = [
-      new Ship(5),
-      new Ship(4),
-      new Ship(3),
-      new Ship(3),
-      new Ship(2),
+      new Ship(5, "grey"),
+      new Ship(4, "yellow"),
+      new Ship(3, "green"),
+      new Ship(3, "pink"),
+      new Ship(2, "purple"),
     ];
   }
 
@@ -21,38 +21,9 @@ export default class Gameboard {
         for (let i = 0; i < ship.length; i += 1) {
           if (this.board[x][y + i] !== null) return false;
         }
-        // mark corners before ship
-        if (x - 1 >= 0 && y - 1 >= 0) {
-          if (this.board[x - 1][y - 1] === null) this.board[x - 1][y - 1] = "x";
-        }
-        if (x + 1 < 10 && y - 1 >= 0) {
-          if (this.board[x + 1][y - 1] === null) this.board[x + 1][y - 1] = "x";
-        }
 
-        // place ship and corners next to it
         for (let i = 0; i < ship.length; i += 1) {
           this.board[x][y + i] = ship;
-          if (x - 1 >= 0) this.board[x - 1][y + i] = "x";
-          if (x + 1 < 10) this.board[x + 1][y + i] = "x";
-        }
-
-        // mark top and bottom of ship
-        if (y - 1 >= 0) {
-          if (this.board[x][y - 1] === null) this.board[x][y - 1] = "x";
-        }
-        if (y + ship.length < 10) {
-          if (this.board[x][y + ship.length] === null)
-            this.board[x][y + ship.length] = "x";
-        }
-
-        // Mark the corners after the ship
-        if (x - 1 >= 0 && y + ship.length < 10) {
-          if (this.board[x - 1][y + ship.length] === null)
-            this.board[x - 1][y + ship.length] = "x";
-        }
-        if (x + 1 < 10 && y + ship.length < 10) {
-          if (this.board[x + 1][y + ship.length] === null)
-            this.board[x + 1][y + ship.length] = "x";
         }
 
         return true;
@@ -64,38 +35,11 @@ export default class Gameboard {
           if (this.board[x + i][y] !== null) return false;
         }
 
-        // mark corners before ship
-        if (x - 1 >= 0 && y - 1 >= 0) {
-          if (this.board[x - 1][y - 1] === null) this.board[x - 1][y - 1] = "x";
-        }
-        if (x - 1 >= 0 && y + 1 < 10) {
-          if (this.board[x - 1][y + 1] === null) this.board[x - 1][y + 1] = "x";
-        }
-
         // place ship and mark next to it
         for (let i = 0; i < ship.length; i += 1) {
           this.board[x + i][y] = ship;
-          if (y - 1 >= 0) this.board[x + i][y - 1] = "x";
-          if (y + 1 <= 10) this.board[x + i][y + 1] = "x";
-        }
-
-        // mark top and bottom of ship
-        if (x - 1 >= 0) {
-          if (this.board[x - 1][y] === null) this.board[x - 1][y] = "x";
-        }
-        if (x + ship.length < 10) {
-          if (this.board[x + ship.length][y] === null)
-            this.board[x + ship.length][y] = "x";
-        }
-
-        // Mark the corners after the ship
-        if (x + ship.length < 10 && y - 1 >= 0) {
-          if (this.board[x + ship.length][y - 1] === null)
-            this.board[x + ship.length][y - 1] = "x";
-        }
-        if (x + ship.length < 10 && y + 1 < 10) {
-          if (this.board[x + ship.length][y + 1] === null)
-            this.board[x + ship.length][y + 1] = "x";
+          // if (y - 1 >= 0) this.board[x + i][y - 1] = "x";
+          // if (y + 1 <= 10) this.board[x + i][y + 1] = "x";
         }
 
         return true;
