@@ -7,6 +7,7 @@ export default function displayShips(player, board) {
       if (fieldDiv) {
         if (typeof field === "object" && field !== null) {
           fieldDiv.classList.add("ship");
+          fieldDiv.style.backgroundColor = field.color;
         }
         if (field === "x" && field !== null)
           fieldDiv.style.backgroundColor = "blue";
