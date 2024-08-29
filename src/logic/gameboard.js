@@ -15,7 +15,7 @@ export default class Gameboard {
   }
 
   placeShip(ship, x, y, direction) {
-    if (direction === "horizontally") {
+    if (direction === "x") {
       // check if u can place ship
       if (y + ship.length <= 10) {
         for (let i = 0; i < ship.length; i += 1) {
@@ -28,7 +28,7 @@ export default class Gameboard {
 
         return true;
       }
-    } else if (direction === "vertically") {
+    } else if (direction === "y") {
       if (x + ship.length <= 10) {
         // check if u can place ship
         for (let i = 0; i < ship.length; i += 1) {
