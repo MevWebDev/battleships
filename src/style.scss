@@ -5,6 +5,50 @@ body {
   align-items: center;
   margin: 0;
   padding: 0;
+  .popup {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    .popup-content {
+      width: 90%;
+      height: 70%;
+      background-color: #ffffff;
+      display: flex;
+      // justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 2rem;
+      position: relative;
+      @media (min-width: 600px) {
+        width: 60%;
+      }
+      @media (min-width: 1200px) {
+        width: 30%;
+        height: 70%;
+      }
+      h3 {
+        font-size: 2rem;
+        margin: 0;
+        margin-top: 2rem;
+      }
+      button {
+        background-color: rgb(173, 216, 230);
+        border: 0;
+        padding: 0.5rem 1rem;
+        font-size: 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: bold;
+      }
+      button:hover {
+        background-color: rgb(135, 206, 235);
+        cursor: pointer;
+      }
+    }
+  }
   .app {
     width: 100%;
     height: 100%;
@@ -14,28 +58,41 @@ body {
     flex-direction: column;
     gap: 5rem;
     background-color: #dddddd;
-    .board-container {
-      display: flex;
-      width: 90%;
-      gap: 2rem;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      @media (min-width: 600px) {
-        flex-direction: row;
-      }
-      .board {
-        display: grid;
-        border: 1px solid #555555;
-        grid-template-columns: repeat(10, 1fr);
-        width: 85%;
-        aspect-ratio: 1/1;
-        .field {
-          border: 1px solid #555555;
-        }
-      }
-      .miss-board {
-      }
+  }
+}
+.board-container {
+  display: flex;
+  width: 90%;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
+  .board {
+    display: grid;
+    border: 1px solid #555555;
+    grid-template-columns: repeat(10, 1fr);
+    width: 85%;
+    aspect-ratio: 1/1;
+    .field {
+      border: 1px solid #555555;
     }
+  }
+  .miss-board {
+  }
+}
+.popup-board {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  width: 340px;
+  height: 340px;
+  @media (min-width: 600px) {
+    width: 440px;
+    height: 440px;
+  }
+  .field {
+    border: 1px solid #555555;
   }
 }
