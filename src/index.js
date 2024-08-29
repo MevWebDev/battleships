@@ -6,11 +6,11 @@ import Computer from "./logic/computer";
 import appUI from "./components/app";
 import playerPutsShips from "./logic/playerPutsShips";
 import computerPutsShips from "./logic/computerPutsShips";
+import popupComponent from "./components/popupComponent";
 
-const player = new Player();
+export const player = new Player();
 
-const computer = new Computer();
-
+export const computer = new Computer();
 appUI();
 playerPutsShips(player);
 computerPutsShips(computer);
