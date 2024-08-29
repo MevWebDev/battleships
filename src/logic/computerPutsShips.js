@@ -14,8 +14,8 @@ export default function computerPutsShips(computer) {
       const y = Math.floor(Math.random() * 10);
       const directionNumber = Math.floor(Math.random() * 2);
       let direction;
-      if (directionNumber === 0) direction = "horizontally";
-      else direction = "vertically";
+      if (directionNumber === 0) direction = "x";
+      else direction = "y";
       placed = computerBoard.placeShip(ship, x, y, direction);
       if (placed) console.log(x, y);
     }
