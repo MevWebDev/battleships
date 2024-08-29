@@ -3,11 +3,11 @@ import Gameboard from "./gameboard";
 export default class Player {
   constructor() {
     this.gameboard = new Gameboard();
-    this.direction = "horizontally";
+    this.direction = "x";
   }
 
   changeDirection() {
-    if (this.direction === "vertically") this.direction = "horizontally";
-    else this.direction = "vertically";
+    if (this.direction === "x") this.direction = "y";
+    else this.direction = "x";
   }
 }
