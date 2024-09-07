@@ -17,11 +17,10 @@ export default function computerPutsShips(computer) {
       if (directionNumber === 0) direction = "x";
       else direction = "y";
       placed = computerBoard.placeShip(ship, x, y, direction);
-      if (placed) console.log(x, y);
     }
 
     index += 1;
   }
-  console.log(computerBoard);
+
   displayShips(computer, gameboard);
 }
