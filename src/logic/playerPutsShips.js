@@ -7,10 +7,9 @@ const hoverColor = "rgb(173, 216, 230)";
 
 export default function playerPutsShips(player) {
   const popup = document.querySelector(".popup");
-  console.log(popup);
+
   let index = 0;
   const board = document.querySelector(".popup-board");
-  console.log(board);
 
   const fields = board.childNodes;
 
@@ -26,6 +25,7 @@ export default function playerPutsShips(player) {
       const x = parseInt(parts[1], 10);
       const y = parseInt(parts[2].split(" ")[0], 10);
       const ship = playerShips[index];
+      console.log(`Current ship lenght: ${ship.length}`);
 
       if (playerBoard.placeShip(ship, x, y, player.direction)) {
         index += 1;
@@ -45,6 +45,8 @@ export default function playerPutsShips(player) {
 function handleMouseOver(gameboard, player, index) {
   const board = document.querySelector(".popup-board");
   return function () {
+    this.style.cursor = "auto";
+    console.log(this);
     console.log(index);
     const x = parseInt(this.className.split("-")[1]);
     const y = parseInt(this.className.split("-")[2].split(" ")[0]);
@@ -54,6 +56,7 @@ function handleMouseOver(gameboard, player, index) {
         gameboard.board[x][y] !== null ||
         y + gameboard.ships[index].length > 10
       ) {
+        console.log("x out of boundaries error");
         this.style.cursor = "not-allowed";
         return;
       }
@@ -61,17 +64,13 @@ function handleMouseOver(gameboard, player, index) {
         // checkin if u can place ship
         for (let i = 0; i < gameboard.ships[index].length; i += 1) {
           if (gameboard.board[x][y + i] !== null) {
+            console.log("x ship already there");
             this.style.cursor = "not-allowed";
             return;
           }
         }
         // hovering over fields
         for (let i = 0; i < gameboard.ships[index].length; i += 1) {
-          if (gameboard.board[x][y + i] !== null) {
-            this.style.cursor = "not-allowed";
-            return;
-          }
-
           const field = board.querySelector(`.field-${x}-${y + i}`);
 
           if (field !== null) {
@@ -86,6 +85,7 @@ function handleMouseOver(gameboard, player, index) {
         gameboard.board[x][y] !== null ||
         x + gameboard.ships[index].length > 10
       ) {
+        console.log("y out of boundaries error");
         this.style.cursor = "not-allowed";
         return;
       }
@@ -93,17 +93,13 @@ function handleMouseOver(gameboard, player, index) {
         // checkin if u can place ship
         for (let i = 0; i < gameboard.ships[index].length; i += 1) {
           if (gameboard.board[x + i][y] !== null) {
+            console.log("y ship already there");
             this.style.cursor = "not-allowed";
             return;
           }
         }
         // hovering over fields
         for (let i = 0; i < gameboard.ships[index].length; i += 1) {
-          if (gameboard.board[x + i][y] !== null) {
-            this.style.cursor = "not-allowed";
-            return;
-          }
-
           const field = board.querySelector(`.field-${x + i}-${y}`);
 
           if (field !== null) {
