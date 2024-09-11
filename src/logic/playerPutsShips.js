@@ -1,4 +1,5 @@
-import displayShips from "./displayShips";
+import displayPlayerShips from "./displayPlayerShips";
+import playerAttack from "./playerAttacks";
 
 let currentMouseOverFunction = null;
 let currentMouseOutFunction = null;
@@ -9,9 +10,10 @@ export default function playerPutsShips(player) {
   const popup = document.querySelector(".popup");
 
   let index = 0;
-  const board = document.querySelector(".popup-board");
+  const popupBoard = document.querySelector(".popup-board");
+  const board = document.querySelector(".game-board");
 
-  const fields = board.childNodes;
+  const fields = popupBoard.childNodes;
 
   const playerBoard = player.gameboard;
   const playerShips = playerBoard.ships;
@@ -33,10 +35,12 @@ export default function playerPutsShips(player) {
       }
       if (index === 5) {
         popup.style.display = "none";
+        displayPlayerShips(player, board);
+        playerAttack();
         return;
       }
 
-      displayShips(player, board);
+      displayPlayerShips(player, popupBoard);
     });
   });
 }
