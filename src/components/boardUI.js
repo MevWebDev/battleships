@@ -1,4 +1,4 @@
-export default function boardUI() {
+export default function boardUI(player) {
   const board = document.createElement("div");
   board.classList.add("board");
   board.classList.add("game-board");
