@@ -1,5 +1,6 @@
 import boardUI from "./boardUI";
 import changeAxisButton from "./changeAxisButton";
+
 export default function popupComponent() {
   const popup = document.createElement("div");
   popup.classList.add("popup");
