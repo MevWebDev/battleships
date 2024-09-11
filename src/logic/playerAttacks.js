@@ -1,5 +1,6 @@
 import { computer } from "../index";
 import displayEnemyShips from "./displayEnemyShips";
+import computerAttack from "./computerAttacks";
 
 export default function playerAttack() {
   const computerBoard = document.querySelector(".miss-board");
@@ -21,6 +22,7 @@ export default function playerAttack() {
         }
       } else field.classList.add("miss");
       displayEnemyShips(computer, computerBoard);
+      computerAttack();
     });
   });
 }
