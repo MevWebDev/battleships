@@ -9,8 +9,13 @@ export default function displayPlayerShips(player, board) {
           fieldDiv.classList.add("ship");
           fieldDiv.style.backgroundColor = field.color;
         }
-        if (field === "x" && field !== null)
-          fieldDiv.style.backgroundColor = "blue";
+        if (fieldDiv.classList.contains("hit"))
+          fieldDiv.style.backgroundColor = "#ff8585";
+        if (fieldDiv.classList.contains("miss"))
+          fieldDiv.style.backgroundColor = "#85ffb3";
+        if (field !== null && field.isSunk()) {
+          fieldDiv.style.backgroundColor = "red";
+        }
       }
     });
   });
