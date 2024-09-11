@@ -6,11 +6,11 @@ export default function displayEnemyShips(player, board) {
       const fieldDiv = board.querySelector(`.field-${i}-${idx}`);
       if (fieldDiv) {
         if (fieldDiv.classList.contains("hit"))
-          fieldDiv.style.backgroundColor = "red";
+          fieldDiv.style.backgroundColor = "#ff8585";
         if (fieldDiv.classList.contains("miss"))
-          fieldDiv.style.backgroundColor = "white";
+          fieldDiv.style.backgroundColor = "#85ffb3";
         if (field !== null && field.isSunk()) {
-          fieldDiv.style.backgroundColor = "black";
+          fieldDiv.style.backgroundColor = "red";
         }
       }
     });
