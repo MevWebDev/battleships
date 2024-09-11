@@ -84,6 +84,9 @@ body {
     .field {
       background-color: transparent;
     }
+    .field:hover {
+      background-color: #cccccc;
+    }
   }
 }
 .popup-board {
