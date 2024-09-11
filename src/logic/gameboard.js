@@ -38,8 +38,6 @@ export default class Gameboard {
         // place ship and mark next to it
         for (let i = 0; i < ship.length; i += 1) {
           this.board[x + i][y] = ship;
-          // if (y - 1 >= 0) this.board[x + i][y - 1] = "x";
-          // if (y + 1 <= 10) this.board[x + i][y + 1] = "x";
         }
 
         return true;
@@ -52,7 +50,6 @@ export default class Gameboard {
       this.board[x][y].hit();
       return true;
     }
-    this.board[x][y] = "miss";
     return false;
   }
 
