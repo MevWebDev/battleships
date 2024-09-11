@@ -1,4 +1,4 @@
-import displayShips from "./displayShips";
+import displayShips from "./displayEnemyShips";
 
 export default function computerPutsShips(computer) {
   const gameboard = document.querySelector(".miss-board");
