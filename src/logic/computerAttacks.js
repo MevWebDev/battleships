@@ -2,7 +2,6 @@ import displayPlayerShips from "./displayPlayerShips";
 import endGame from "./result";
 
 export default function computerAttack(player, computer) {
-  console.log();
   const playerBoard = document.querySelector(".game-board");
 
   const playerShips = player.gameboard;
@@ -11,9 +10,7 @@ export default function computerAttack(player, computer) {
     const x = Math.floor(Math.random() * 10);
     const y = Math.floor(Math.random() * 10);
     const field = playerBoard.querySelector(`.field-${x}-${y}`);
-    console.log(`field-${x}-${y}`);
     if (field.classList.contains("hit") || field.classList.contains("miss")) {
-      console.log("Already attacked");
       continue;
     } else if (playerShips.receiveAttack(x, y) === true) {
       // changed else to else if
