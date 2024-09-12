@@ -15,7 +15,7 @@ body {
     position: absolute;
     .popup-content {
       width: 90%;
-      height: 70%;
+      height: 60%;
       background-color: #ffffff;
       display: flex;
       // justify-content: center;
@@ -23,8 +23,11 @@ body {
       flex-direction: column;
       gap: 2rem;
       position: relative;
+      border-radius: 1rem;
+
       @media (min-width: 600px) {
         width: 60%;
+        height: 50%;
       }
       @media (min-width: 1200px) {
         width: 30%;
@@ -46,6 +49,17 @@ body {
       button:hover {
         background-color: rgb(135, 206, 235);
         cursor: pointer;
+      }
+      .gif {
+        width: 70%;
+      }
+    }
+    .small {
+      width: fit-content;
+      height: fit-content;
+      padding: 5rem;
+      @media (min-width: 600px) {
+        padding: 10rem;
       }
     }
   }
