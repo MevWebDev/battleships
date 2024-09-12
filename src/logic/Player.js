@@ -10,4 +10,8 @@ export default class Player {
     if (this.direction === "x") this.direction = "y";
     else this.direction = "x";
   }
+
+  reset() {
+    this.gameboard = new Gameboard();
+  }
 }
