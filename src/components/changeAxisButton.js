@@ -1,6 +1,4 @@
-import { player } from "../index";
-
-export default function changeAxisButton() {
+export default function changeAxisButton(player) {
   const button = document.createElement("button");
   button.classList.add("rotate");
   button.textContent = `${player.direction} axis`;
