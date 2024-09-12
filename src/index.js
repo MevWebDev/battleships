@@ -6,13 +6,14 @@ import appUI from "./components/app";
 import playerPutsShips from "./logic/playerPutsShips";
 import computerPutsShips from "./logic/computerPutsShips";
 
-function startGame() {
-  const player = new Player();
-  const computer = new Computer();
-  return { player, computer };
+export default function newGame() {
+  let player = null;
+  let computer = null;
+  player = new Player();
+  computer = new Computer();
+  appUI(player);
+  playerPutsShips(player, computer);
+  computerPutsShips(computer);
+  console.log(player);
 }
-const { player, computer } = startGame();
-export { player, computer };
-appUI();
-playerPutsShips(player);
-computerPutsShips(computer);
+newGame();
