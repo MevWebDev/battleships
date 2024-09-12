@@ -1,7 +1,7 @@
 import boardUI from "./boardUI";
 import changeAxisButton from "./changeAxisButton";
 
-export default function popupComponent() {
+export default function popupComponent(player) {
   const popup = document.createElement("div");
   popup.classList.add("popup");
   const popupContent = document.createElement("div");
@@ -12,7 +12,7 @@ export default function popupComponent() {
   `;
 
   popup.appendChild(popupContent);
-  popupContent.appendChild(changeAxisButton());
+  popupContent.appendChild(changeAxisButton(player));
   const gameboard = boardUI();
   gameboard.classList.remove("game-board");
   gameboard.classList.add("popup-board");
