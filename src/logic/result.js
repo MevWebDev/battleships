@@ -1,8 +1,7 @@
-import newGame from "../index";
+import resultPopup from "../components/resultPopup";
 
 export default function (message, player, computer) {
-  alert(message);
-  newGame();
   player.reset();
   computer.reset();
+  resultPopup(message);
 }
