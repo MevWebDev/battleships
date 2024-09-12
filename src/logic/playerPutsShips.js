@@ -6,7 +6,7 @@ let currentMouseOutFunction = null;
 
 const hoverColor = "rgb(173, 216, 230)";
 
-export default function playerPutsShips(player) {
+export default function playerPutsShips(player, computer) {
   const popup = document.querySelector(".popup");
 
   let index = 0;
@@ -36,7 +36,7 @@ export default function playerPutsShips(player) {
       if (index === 5) {
         popup.style.display = "none";
         displayPlayerShips(player, board);
-        playerAttack();
+        playerAttack(computer, player);
         return;
       }
 
