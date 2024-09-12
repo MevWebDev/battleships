@@ -1,6 +1,5 @@
 import displayEnemyShips from "./displayEnemyShips";
 import computerAttack from "./computerAttacks";
-import newGame from "../index";
 import endGame from "./result";
 
 export default function playerAttack(computer, player) {
