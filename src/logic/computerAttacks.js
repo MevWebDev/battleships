@@ -1,7 +1,7 @@
-import { player } from "../index";
 import displayPlayerShips from "./displayPlayerShips";
+import endGame from "./result";
 
-export default function computerAttack() {
+export default function computerAttack(player, computer) {
   console.log();
   const playerBoard = document.querySelector(".game-board");
 
@@ -19,7 +19,9 @@ export default function computerAttack() {
       // changed else to else if
       field.classList.add("hit");
       if (playerShips.areAllShipsSunk()) {
-        alert("You lost!");
+        endGame("You lost", player, computer);
+
+        return;
       }
     } else {
       field.classList.add("miss");

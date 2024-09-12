@@ -1,8 +1,9 @@
-import { computer } from "../index";
 import displayEnemyShips from "./displayEnemyShips";
 import computerAttack from "./computerAttacks";
+import newGame from "../index";
+import endGame from "./result";
 
-export default function playerAttack() {
+export default function playerAttack(computer, player) {
   const computerBoard = document.querySelector(".miss-board");
 
   const fields = computerBoard.childNodes;
@@ -17,12 +18,14 @@ export default function playerAttack() {
 
       if (computerShips.receiveAttack(x, y) === true) {
         field.classList.add("hit");
+        displayEnemyShips(computer, computerBoard);
         if (computerShips.areAllShipsSunk()) {
-          alert("You won!");
+          endGame("You won!", player, computer);
+          return;
         }
       } else field.classList.add("miss");
       displayEnemyShips(computer, computerBoard);
-      computerAttack();
+      computerAttack(player, computer);
     });
   });
 }
