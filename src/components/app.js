@@ -3,11 +3,12 @@ import header from "./header";
 import missBoardUI from "./missBoardUI";
 import popupComponent from "./popupComponent";
 
-export default function appUI() {
+export default function appUI(player) {
+  document.body.innerHTML = "";
   const app = document.createElement("div");
   app.classList.add("app");
   document.body.appendChild(app);
-  document.body.appendChild(popupComponent());
+  document.body.appendChild(popupComponent(player));
   const boardsContainer = document.createElement("div");
   boardsContainer.classList.add("board-container");
   app.appendChild(header());
