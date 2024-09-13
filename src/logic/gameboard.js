@@ -7,10 +7,10 @@ export default class Gameboard {
       .map(() => Array(10).fill(null));
     this.ships = [
       new Ship(5, "#808080"),
-      new Ship(4, "#696969"),
-      new Ship(3, "#A9A9A9"),
-      new Ship(3, "#778899"),
-      new Ship(2, "#708090"),
+      new Ship(4, "#737373"),
+      new Ship(3, "#676767"),
+      new Ship(3, "#5c5c5c"),
+      new Ship(2, "#525252"),
     ];
   }
 
