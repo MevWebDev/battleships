@@ -149,12 +149,11 @@ body {
 .popup-board {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  width: 340px;
-  height: 340px;
+  width: 85%;
+  aspect-ratio: 1/1;
   border: 1px solid #555555;
   @media (min-width: 600px) {
-    width: 440px;
-    height: 440px;
+    width: 75%;
   }
   .field {
     border: 1px solid #555555;
