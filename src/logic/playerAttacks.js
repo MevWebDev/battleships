@@ -14,7 +14,8 @@ export default function playerAttack(computer, player) {
       const parts = className.split("-");
       const x = parseInt(parts[1], 10);
       const y = parseInt(parts[2].split(" ")[0], 10);
-
+      if (field.classList.contains("hit") || field.classList.contains("miss"))
+        return;
       if (computerShips.receiveAttack(x, y) === true) {
         field.classList.add("hit");
         displayEnemyShips(computer, computerBoard);
