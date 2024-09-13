@@ -1,4 +1,7 @@
 body {
+  button {
+    color: black;
+  }
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -149,7 +152,7 @@ body {
 .popup-board {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  width: 85%;
+  width: 65%;
   aspect-ratio: 1/1;
   border: 1px solid #555555;
   @media (min-width: 600px) {
