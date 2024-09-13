@@ -14,7 +14,7 @@ export default function displayPlayerShips(player, board) {
         if (fieldDiv.classList.contains("miss"))
           fieldDiv.style.backgroundColor = "#85ffb3";
         if (field !== null && field.isSunk()) {
-          fieldDiv.style.backgroundColor = "red";
+          fieldDiv.style.backgroundColor = "black";
         }
       }
     });
