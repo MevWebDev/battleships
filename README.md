@@ -50,8 +50,8 @@ Battleships is a classic two-player strategy game where each player positions a 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/battleships-webapp.git
-   cd battleships-webapp
+   git clone https://github.com/MevWebDev/battleships.git
+   cd battleships
    ```
 
 2. Install dependencies:
