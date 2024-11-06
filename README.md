@@ -34,8 +34,9 @@ Battleships is a classic two-player strategy game where each player positions a 
   
 ## Technologies Used
 
-- **Frontend**: HTML, CSS, JavaScript 
+- **Frontend**: HTML, SCSS, JavaScript 
 - **Testing**: Jest for unit testing
+- **Bundling**: Webpack
 
 ## Getting Started
 
